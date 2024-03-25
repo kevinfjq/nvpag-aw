@@ -10,6 +10,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.time.LocalDateTime;
+import java.time.OffsetDateTime;
 
 @AllArgsConstructor
 @Service
@@ -24,7 +25,7 @@ public class ParcelamentoService {
         Cliente cliente = clienteService.find(parcelamento.getCliente().getId());
 
         parcelamento.setCliente(cliente);
-        parcelamento.setDataCriacao(LocalDateTime.now());
+        parcelamento.setDataCriacao(OffsetDateTime.now());
 
         return parcelamentosRepository.save(parcelamento);
     }

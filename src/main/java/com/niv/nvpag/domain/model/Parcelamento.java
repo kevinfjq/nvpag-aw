@@ -9,10 +9,10 @@ import jakarta.validation.groups.Default;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.Setter;
-import org.springframework.context.annotation.Primary;
 
 import java.math.BigDecimal;
-import java.time.LocalDateTime;
+import java.time.OffsetDateTime;
+
 @Entity
 @Getter
 @Setter
@@ -39,5 +39,5 @@ public class Parcelamento {
     @Positive
     @Max(12)
     private Integer quantidadeParcelas;
-    private LocalDateTime dataCriacao;
+    private OffsetDateTime dataCriacao;
 }
