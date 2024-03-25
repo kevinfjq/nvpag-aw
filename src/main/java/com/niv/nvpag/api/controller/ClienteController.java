@@ -27,12 +27,11 @@ public class ClienteController {
     }
 
     @GetMapping("/{clienteId}")
-    public ResponseEntity<Cliente> findCliente(@PathVariable Long clienteId) {
+    public ResponseEntity<Cliente> find(@PathVariable Long clienteId) {
         Optional<Cliente> cliente = clienteRepository.findById(clienteId);
 
-        if(cliente.isPresent()) return ResponseEntity.ok(cliente.get());
+        return cliente.map(ResponseEntity::ok).orElseGet(() -> ResponseEntity.notFound().build());
 
-        return ResponseEntity.notFound().build();
     }
     @ResponseStatus(HttpStatus.CREATED)
     @PostMapping
