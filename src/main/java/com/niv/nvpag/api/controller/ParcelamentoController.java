@@ -1,6 +1,5 @@
 package com.niv.nvpag.api.controller;
 
-import com.niv.nvpag.domain.exception.BusinessException;
 import com.niv.nvpag.domain.model.Parcelamento;
 import com.niv.nvpag.domain.repository.ParcelamentosRepository;
 import com.niv.nvpag.domain.services.ParcelamentoService;
@@ -35,8 +34,4 @@ public class ParcelamentoController {
         return parcelamentoService.save(parcelamento);
     }
 
-    @ExceptionHandler(BusinessException.class)
-    public ResponseEntity<String> capture(BusinessException e) {
-        return ResponseEntity.badRequest().body(e.getMessage());
-    }
 }

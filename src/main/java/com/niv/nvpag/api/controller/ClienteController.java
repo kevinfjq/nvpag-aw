@@ -1,6 +1,5 @@
 package com.niv.nvpag.api.controller;
 
-import com.niv.nvpag.domain.exception.BusinessException;
 import com.niv.nvpag.domain.model.Cliente;
 import com.niv.nvpag.domain.repository.ClienteRepository;
 import com.niv.nvpag.domain.services.RegistryClienteService;
@@ -56,8 +55,5 @@ public class ClienteController {
 
         return ResponseEntity.noContent().build();
     }
-    @ExceptionHandler(BusinessException.class)
-    public ResponseEntity<String> capture(BusinessException e) {
-        return ResponseEntity.badRequest().body(e.getMessage());
-    }
+
 }
